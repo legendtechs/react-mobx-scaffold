@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .head,
+  .foot {
+    flex: 0 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .body {
+    flex: 1 1 auto;
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

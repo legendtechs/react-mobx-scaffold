@@ -1,0 +1,28 @@
+{
+  "presets": [
+      [
+        "@babel/preset-env", {
+            "modules": false
+        }
+      ],
+      "@babel/preset-react"
+  ],
+  "plugins": [
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      "@babel/plugin-proposal-class-properties",
+      "transform-class-properties",
+      "babel-plugin-transform-do-expressions",
+      "babel-plugin-transform-function-bind",
+      "transform-object-rest-spread", 
+      [
+          "import", {
+              "libraryName": "antd",
+              "style": true
+          }
+      ],
+      "syntax-dynamic-import",
+      "dynamic-import-webpack",
+      "syntax-async-functions",
+      "transform-async-to-generator"
+  ]
+}
