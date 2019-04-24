@@ -57,7 +57,7 @@ module.exports = {
               parser: 'sugarss',
               // modules: true,
               importLoaders: 1,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              localIdentName: '[name]__[local]--[hash:base64:5]'
             }
           },
           'postcss-loader'
@@ -84,13 +84,17 @@ module.exports = {
         test: /\.less$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: devMode ? '[name]__[local]--[hash:base64:5]' : '[hash:base64]',
+            }
+          },
           'postcss-loader',
           {
             loader: 'less-loader',
             options: {
               modules: false,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
               modifyVars: {
                 'primary-color': '#3483DA',
                 'link-color': '#3483DA',

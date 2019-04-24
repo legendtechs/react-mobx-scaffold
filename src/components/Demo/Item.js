@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react';
-import { Button } from 'antd'
+import { withRouter } from 'react-router-dom';
+import { Button, Icon } from 'antd'
 import './style.less';
 import { toJS } from 'mobx';
 
+@withRouter
 @inject('demoStore')
 @observer
 class Item extends Component {
+  componentWillReact() {
+    console.log('componentWillReact ', this.props);
+  }
   onSetActive = () => {
     const { isActive, info, demoStore: { setActive } } =this.props
     if (isActive) {
@@ -36,8 +41,9 @@ class Item extends Component {
     };
     updateItem(data);
   }
-  componentWillReact() {
-    console.log('componentWillReact ', this.props);
+  toDetail = e => {
+    console.log('props ', this.props)
+    this.props.history.push('/detail');
   }
   render() {
     const { info, isActive, demoStore: { activeItem } } = this.props;
@@ -46,8 +52,9 @@ class Item extends Component {
         {isActive? <input value={info.label} onChange={this.onInputChange}></input> : info.label}
       </span>
       <span className='btns'>
-        <Button onClick={this.onDel} className='mb10'>删除</Button>
-        <Button onClick={this.onEdit}>编辑</Button>
+        <Button onClick={this.onDel} className='ml10'>删除</Button>
+        <Button onClick={this.onEdit} className='ml10'>编辑</Button>
+        <Icon type="right" onClick={this.toDetail} className='ml10'/>
       </span>
     </div>)
   }
