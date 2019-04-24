@@ -28,7 +28,7 @@ Axios.interceptors.response.use(response => {
   return Promise.reject(error)
 })
 
-export default async function request (options) {
+export default function request(options) {
   const newOptions = {
     headers: {
       'X-Requested-With': 'XMLHttpRequest'

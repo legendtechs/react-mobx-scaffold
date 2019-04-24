@@ -3,10 +3,10 @@ var len =10;
 var data =[];
 
 while(len>0) {
-  data.push(
+  data.push({
     key: len,
-    title: `这是第${len}个条目`
-  )
+    label: `这是第${len}个条目`
+  })
   len--;
 }
 module.exports = [{

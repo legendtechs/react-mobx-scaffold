@@ -89,6 +89,8 @@ module.exports = {
           {
             loader: 'less-loader',
             options: {
+              modules: false,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
               modifyVars: {
                 'primary-color': '#3483DA',
                 'link-color': '#3483DA',

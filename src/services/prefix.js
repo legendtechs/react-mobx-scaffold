@@ -1,1 +1,2 @@
-export default '/api'
+const prefixName = '/api';
+export default prefixName;

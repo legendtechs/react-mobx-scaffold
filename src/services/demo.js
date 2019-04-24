@@ -6,7 +6,7 @@ export async function getList() {
   const data = await request({
     url: `${prefixName}${apiConfig.demo}`,
     method: 'get',
-  })
+  });
   return data;
 }
 

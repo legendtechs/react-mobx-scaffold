@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import Item from './Item';
 import './style.less';
+import { toJS } from 'mobx';
 
 @inject('demoStore')
 @observer
 class List extends Component {
+  componentDidMount() {
+    this.props.demoStore.getList();
+  }
   render() {
-    const data = [1,2,3,4,5,6,7,8,9,10];
-    return <div>
-      list pages
+    const { demoStore: { list, activeItem } } = this.props;
+    const curData = toJS(list);
+    return <div className='list'>
       {
-        data.map(key => <Item key={key} info={key}>Item-${key}</Item>)
+        curData.map(info => <Item key={info.key} info={info} isActive={toJS(activeItem) && toJS(activeItem).key === info.key}></Item>)
       }
     </div>
   }
