@@ -13,7 +13,6 @@
       "transform-class-properties",
       "babel-plugin-transform-do-expressions",
       "babel-plugin-transform-function-bind",
-      "transform-object-rest-spread", 
       [
           "import", {
               "libraryName": "antd",

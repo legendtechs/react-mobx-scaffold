@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var webpackMerge = require('webpack-merge');
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var TerserWebpackPlugin = require('terser-webpack-plugin');
 var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');// var CompressionPlugin = require("compression-webpack-plugin")
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -26,10 +26,10 @@ var prdConfig = {
   },
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
+      new TerserWebpackPlugin({
         sourceMap: true,
         parallel: true,
-        uglifyOptions: {
+        terserOptions: {
           compress: false,
           mangle: true
         }
